@@ -6,7 +6,6 @@ import FormInput from '../form-input/form-input.componet';
 import CustomButton from '../custom-button/custom-button.component';
 import {auth, signInWithGoogle} from '../../firebase/firebase.utils';
 
-//We have to store what the user is typing in so we make a class
 
 class SignIn extends React.Component{
     constructor(props){

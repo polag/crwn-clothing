@@ -15,14 +15,13 @@ import {setCurrentUser} from './redux/user/user.actions';
 import {selectCurrentUser} from './redux/user/user.selectors';
 
 class App extends React.Component {
-  //This is how we handle the app being aware of any auth changes in firebase:
   unsubscribeFromAuth = null;
   
   componentDidMount(){
     const {setCurrentUser} = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth){//si el usuario esta logueado, cargamos la data en el state, sino seteamos state en null (userAuth=null)
+      if (userAuth){
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapShot => {
